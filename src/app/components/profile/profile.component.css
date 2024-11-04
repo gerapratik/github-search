@@ -28,6 +28,16 @@
     margin: 5px 0; 
 }
 
+.user-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.user-details{
+    display: flex;
+    flex-direction: column;
+}
 
 .button-container {
     display: flex; 
