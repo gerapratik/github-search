@@ -1,12 +1,26 @@
 <div class="history-container">
     <h2>Search History</h2>
     <ul>
-        <li *ngFor="let entry of history">{{ entry.username }}</li>
+        <li *ngFor="let entry of history">
+            <ng-container *ngIf="entry.success; else notFound">
+                <div class="userhistory-container">
+
+                    <img class="my-image" [src]="entry.avatar_url" alt="{{ entry.login }}'s avatar" />
+                    <p>{{ entry.login }}</p>
+                    <button class="view-profile" (click)="viewProfile(entry.login)">View Profile</button>
+                </div>
+
+            </ng-container>
+            <ng-template #notFound>
+                <div class="user-notfound">
+                   <p>{{ entry.user }}</p> 
+                    <p>Not found</p>
+                </div>
+            </ng-template>
+        </li>
     </ul>
     <div class="history-button-container">
         <button class="clear-history" (click)="clearHistory()">Clear History</button>
         <button class="back-to-dashboard" routerLink="/">Back to Dashboard</button>
-
     </div>
-   
 </div>

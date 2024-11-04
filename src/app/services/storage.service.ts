@@ -6,10 +6,18 @@ import { Injectable } from '@angular/core';
 export class StorageService {
   private historyKey = 'searchHistory';
 
-  saveSearch(username: string, success: boolean): void {
+  saveSearch(user: any, success: boolean): void {
     let history = this.getHistory();
-    history.push({ username, success, date: new Date() });
+    history = history.filter(entry => entry.login !== user.login); // Remove duplicates
+
+    if (success) {
+      history.unshift({ ...user, date: new Date(), success });
+    } else {
+      history.unshift({ user, date: new Date(), success });
+    }
+
     localStorage.setItem(this.historyKey, JSON.stringify(history));
+    console.log(localStorage)
   }
 
   getHistory(): any[] {

@@ -24,7 +24,7 @@ export class SearchComponent {
       user => {
         this.user = user;
         this.error = '';
-        this.storageService.saveSearch(this.username, true);
+        this.storageService.saveSearch(user, true);
       },
       err => {
         this.error = 'User not found';
