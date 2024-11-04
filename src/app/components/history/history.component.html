@@ -1,0 +1,12 @@
+<div class="history-container">
+    <h2>Search History</h2>
+    <ul>
+        <li *ngFor="let entry of history">{{ entry.username }}</li>
+    </ul>
+    <div class="history-button-container">
+        <button class="clear-history" (click)="clearHistory()">Clear History</button>
+        <button class="back-to-dashboard" routerLink="/">Back to Dashboard</button>
+
+    </div>
+   
+</div>

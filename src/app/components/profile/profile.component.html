@@ -1,0 +1,12 @@
+<div class="profile">
+    <h2>{{ user.login }}</h2>
+    <p>{{ user.bio }}</p>
+    <p>Followers: {{ user.followers }}</p>
+    <p>Following: {{ user.following }}</p>
+    
+    <div class="button-container">
+        <button class="bg-blue-500" routerLink="/search">Search Other User</button>
+        <button class="bg-gray-500" routerLink="/">Dashboard</button>
+        <button class="bg-gray-500" routerLink="/history">History</button>
+    </div>
+</div>

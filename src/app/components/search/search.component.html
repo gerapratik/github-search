@@ -1,0 +1,17 @@
+<div class="search-container">
+  <h2>Search GitHub User</h2>
+  <input [(ngModel)]="username" placeholder="Enter GitHub username" />
+  <div class="button-container">
+      <button class="bg-blue-500" (click)="searchUser()">Search</button>
+      <button class="back-to-dashboard" routerLink="/">Back to Dashboard</button>
+
+  </div>
+
+  <div *ngIf="user" class="user-details">
+      <h3>{{ user.login }}</h3>
+      <p>{{ user.bio }}</p>
+      <button class="view-profile" (click)="viewProfile()">View Profile</button>
+  </div>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+</div>
